@@ -1,0 +1,16 @@
+{
+  "name": "transform-json",
+  "version": "0.0.1",
+  "author": "Johannes Herrnegger",
+  "description": "Simple transform JSON object structure",
+  "main": "index.js",
+  "devDependencies": {
+    "chai": "^2.0.0",
+    "lodash": "^3.2.0",
+    "mocha": "^2.1.0",
+    "nomnom": "^1.8.1"
+  },
+  "scripts": {
+    "test": "mocha ./spec/transform-json.js"
+  }
+}

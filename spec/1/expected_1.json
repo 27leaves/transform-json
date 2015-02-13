@@ -1,0 +1,12 @@
+{
+  "TRANSLATION": "My Translation",
+  "NAME": "My Name",
+  "SETTINGS": {
+    "SECTION_1": {
+      "MOO": "YES"
+    },
+    "SECTION_2": {
+      "MOO": "My Name"
+    }
+  }
+}
