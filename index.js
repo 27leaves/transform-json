@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 var opts = require("nomnom").parse();
 var fs = require('fs');

@@ -13,13 +13,24 @@ describe('transformJson()', function () {
 
   describe('basic functionality', function() {
     var input, template, expected;
-    beforeEach(function () {
-      input = JSON.parse(fs.readFileSync('spec/1/input_1.json', 'utf8'));
-      template = JSON.parse(fs.readFileSync('spec/1/template_1.json', 'utf8'));
-      expected = JSON.parse(fs.readFileSync('spec/1/expected_1.json', 'utf8'));
-    });
 
     it('should transform correctly like given in the files', function() {
+      input = JSON.parse(fs.readFileSync('spec/1/input.json', 'utf8'));
+      template = JSON.parse(fs.readFileSync('spec/1/template.json', 'utf8'));
+      expected = JSON.parse(fs.readFileSync('spec/1/expected.json', 'utf8'));
+
+      var output = transformJson(input, template);
+      expect(output).to.be.ok;
+
+      expect(output).to.deep.equal(expected);
+    });
+
+
+    it('should also get dot-notation-keys in objects', function() {
+      input = JSON.parse(fs.readFileSync('spec/2/input.json', 'utf8'));
+      template = JSON.parse(fs.readFileSync('spec/2/template.json', 'utf8'));
+      expected = JSON.parse(fs.readFileSync('spec/2/expected.json', 'utf8'));
+
       var output = transformJson(input, template);
       expect(output).to.be.ok;
 
