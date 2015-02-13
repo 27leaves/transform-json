@@ -6,17 +6,17 @@ var fs = require('fs');
 var transformJson = require('./transform-json');
 
 if(!opts.input) {
-  return console.log('input has to be specified');
+  return console.log('--input has to be specified');
 }
 else if(!opts.output) {
-  return console.log('output has to be specified');
+  return console.log('--output has to be specified');
 }
-else if(!opts.template) {
-  return console.log('template has to be specified');
+else if(!opts.transform) {
+  return console.log('--transform has to be specified');
 }
 else {
   var inputFile = opts.input;
-  var templateFile = opts.template;
+  var transformFile = opts.transform;
   var outputFile = opts.output;
   fs.readFile(inputFile, 'utf8', function (err,input) {
     if (err) {
@@ -25,12 +25,12 @@ else {
     // input is there
     var inputJSON = JSON.parse(input);
 
-    fs.readFile(templateFile, 'utf8', function (err,template) {
+    fs.readFile(transformFile, 'utf8', function (err,transform) {
       if (err) {
         return console.log(err);
       }
-      // template is there
-      var templateJSON = JSON.parse(template);
+      // transform is there
+      var templateJSON = JSON.parse(transform);
       var output = transformJson(inputJSON, templateJSON);
 
       fs.writeFile(outputFile, JSON.stringify(output, null, 2), function(err) {

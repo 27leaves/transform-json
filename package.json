@@ -1,11 +1,12 @@
 {
   "name": "transform-json",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Johannes Herrnegger",
   "repository": {
     "type": "git",
     "url": "https://github.com/creat-or/transform-json"
   },
+  "main": "transform-json.js",
   "description": "Simple transform JSON object structure",
   "files": [
     "index.js",
@@ -20,7 +21,7 @@
     "nomnom": "^1.8.1"
   },
   "bin": {
-    "transform-json": "index.js"
+    "transform-json-cli": "index.js"
   },
   "scripts": {
     "test": "mocha ./spec/transform-json.js"

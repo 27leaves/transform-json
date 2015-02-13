@@ -4,15 +4,36 @@
 
 First goal of this node module was to modify the structure of many translation files of [angular-translate](https://github.com/angular-translate/angular-translate). Please note that the values of the input files never change, but the structural information.
 
-## Example
+## Install
 
-Start with
 ```
 npm install -g transform-json
-transform-json --input=input.json --template=template.json --output=output.json
 ```
 
-Input JSON:
+## Using in node
+
+```
+var transformJson = require('transform-json');
+
+var input = {
+  a: 'some string'
+};
+var transform = {
+  'a': 'b' // renames 'a' to 'b'
+};
+var output = transformJson(input, transform);
+console.log('output: ' + JSON.stringify(output)); // output: {"b":"some string"}
+```
+
+## Using with CLI and external JSON files
+
+```
+transform-json-cli --input=input.json --transform=template.json --output=output.json
+```
+
+### Example files
+
+input.json:
 ```
 {
   "TRANSLATE_THIS": "My Translation",
@@ -25,7 +46,7 @@ Input JSON:
 }
 ```
 
-Transform JSON:
+transform.json:
 ```
 {
   "NAME": ["SETTINGS.SECTION_2.MOO", "NAME"],
@@ -34,7 +55,7 @@ Transform JSON:
 
 ```
 
-Output JSON:
+output.json:
 ```
 {
   "TRANSLATION": "My Translation",
