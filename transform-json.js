@@ -47,13 +47,14 @@ var transformJson = function (input, template) {
       if(!obj[key]) {
         obj[key] = {};
       }
-      setInPath(obj[key], rest);
+      setInPath(obj[key], rest, insert);
     }
     else {
       obj[path] = insert;
     }
   };
 
+  var key;
   for(key in template) {
     var templateItem = template[key];
 

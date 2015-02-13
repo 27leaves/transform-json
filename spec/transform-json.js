@@ -14,13 +14,15 @@ describe('transformJson()', function () {
   describe('basic functionality', function() {
     var input, template, expected;
     beforeEach(function () {
-      var input = JSON.parse(fs.readFileSync('spec/1/input_1.json', 'utf8'));
-      var template = JSON.parse(fs.readFileSync('spec/1/template_1.json', 'utf8'));
-      var expected = JSON.parse(fs.readFileSync('spec/1/expected_1.json', 'utf8'));
+      input = JSON.parse(fs.readFileSync('spec/1/input_1.json', 'utf8'));
+      template = JSON.parse(fs.readFileSync('spec/1/template_1.json', 'utf8'));
+      expected = JSON.parse(fs.readFileSync('spec/1/expected_1.json', 'utf8'));
     });
 
     it('should transform correctly like given in the files', function() {
       var output = transformJson(input, template);
+      expect(output).to.be.ok;
+
       expect(output).to.deep.equal(expected);
     });
   });

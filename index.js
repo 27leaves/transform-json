@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var opts = require("nomnom").parse();
 var fs = require('fs');
 var transformJson = require('./transform-json');
@@ -29,7 +31,14 @@ else {
       // template is there
       var templateJSON = JSON.parse(template);
       var output = transformJson(inputJSON, templateJSON);
-      console.log(output);
+
+      fs.writeFile(outputFile, JSON.stringify(output, null, 2), function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("File " + outputFile + " successfully saved.");
+        }
+      });
 
     });
 
