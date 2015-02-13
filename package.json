@@ -2,6 +2,10 @@
   "name": "transform-json",
   "version": "0.0.1",
   "author": "Johannes Herrnegger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/creat-or/transform-json"
+  },
   "description": "Simple transform JSON object structure",
   "files": [
     "index.js",
